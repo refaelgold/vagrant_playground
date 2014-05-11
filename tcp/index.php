@@ -13,4 +13,5 @@
     <li><a href="connector.php">FisHa connector</a></li>
     <li><a href="connector002.php">udp Connection</a></li>
     <li><a href="example_to_connect.php">Connector for www.example.com More Details</a></li>
+    <li><a href="pure_socket.php">work full example-works</a></li>
 </ul>
