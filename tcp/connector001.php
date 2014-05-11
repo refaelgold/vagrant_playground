@@ -8,8 +8,7 @@ if (!$fp) {
     $out .= "Connection: Close\r\n\r\n";
     fwrite($fp, $out);
     while (!feof($fp)) {
-        echo fgets($fp, 128);
+        echo fgets($fp, 128)."<br/>";
     }
     fclose($fp);
 }
-?>
