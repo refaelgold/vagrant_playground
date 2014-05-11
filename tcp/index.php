@@ -12,4 +12,5 @@
     <li><a href="connector001.php">Connector for www.example.com</a></li>
     <li><a href="connector.php">FisHa connector</a></li>
     <li><a href="connector002.php">udp Connection</a></li>
+    <li><a href="example_to_connect.php">Connector for www.example.com More Details</a></li>
 </ul>

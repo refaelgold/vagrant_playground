@@ -7,7 +7,6 @@
  */
 ?>
 <h1>Welcome to Playground-feel free to play</h1>
-
 <ul>
     <li><a href="tcp">TCP</a></li>
 </ul>
