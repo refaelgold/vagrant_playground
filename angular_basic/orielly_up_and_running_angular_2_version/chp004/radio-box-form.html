@@ -1,0 +1,33 @@
+<!-- File: chapter2/creating-controller.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hello AngularJS</title>
+    <script src="../js/angular.1.3.0.js"></script>
+    <style>
+        label.input-label{
+            color:#cc0000;
+            font-weight:bold;
+        }
+    </style>
+</head>
+    <body ng-app="notesApp">
+        <div ng-controller="MainCtrl as main">
+                <div ng-init="otherGender = 'other'">
+                    <input type="radio" name="gender" ng-model="user.gender" value="male">Male
+                    <input type="radio" name="gender" ng-model="user.gender" value="female">Female
+                    <input type="radio" name="gender" ng-model="user.gender" data-ng-value="otherGender">{{otherGender}}
+                </div>
+
+
+            <span data-ng-bind="user.gender"></span>
+
+        </div>
+
+    <script type="text/javascript">
+        angular.module('notesApp',[])
+                .controller('MainCtrl', [function() {
+                }]);
+    </script>
+    </body>
+</html>

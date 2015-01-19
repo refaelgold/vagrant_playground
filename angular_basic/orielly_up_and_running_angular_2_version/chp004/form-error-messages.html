@@ -1,0 +1,52 @@
+<html>
+<head>
+    <title>Form with html validation</title>
+    <script src="../js/angular.1.3.0.js"></script>
+
+</head>
+<body data-ng-app="notesApp">
+<div data-ng-controller="MainCtrl as main">
+
+    <form data-ng-submit="main.submit()" name="myForm">
+        <input class="username" type="text" name="uname" data-ng-model="main.user.username" required  data-ng-minlength="4">
+        <br/>
+        <h2>Username error</h2>
+        <span data-ng-show="myForm.uname.$error.required">
+        This is a required field
+        </span>
+        <br/>
+        <span data-ng-show="myForm.uname.$error.minlength">
+        Minimum Length required is 4
+        </span>
+        <br/>
+        <span data-ng-show="myForm.uname.$invalid">
+        This field is invalid
+        </span>
+        <br/>
+        <input type="password" name="pwd" data-ng-model="main.user.password" required data-ng-minlength="8">
+        <br/>
+        <h2>Password error</h2>
+        <span data-ng-show="myForm.pwd.$error.required">
+        This is a required field
+        </span>
+        <br/>
+        <span data-ng-show="myForm.pwd.$error.minlength">
+        Minimum Length required is 8
+        </span>
+        <br/>
+        <input type="submit" value="Submit" data-ng-disabled="myForm.$invalid">
+    </form>
+
+</div>
+
+<script type="text/javascript">
+    angular.module('notesApp', [])
+            .controller('MainCtrl', [function () {
+                var self = this;
+                self.submit = function () {
+                    console.log('User clicked submit with ', self.user);
+                };
+            }]);
+</script>
+</body>
+</html>

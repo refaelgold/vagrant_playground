@@ -1,0 +1,43 @@
+<!-- File: chapter2/creating-controller.html -->
+
+<!--this is for sibling elment and not only inside element with wrapper-->
+<html>
+<head>
+    <title>Hello AngularJS</title>
+    <link rel="stylesheet" href="style.css"/>
+</head>
+
+<body ng-app="notesApp">
+<div ng-controller="MainCtrl as main">
+    <table class="table">
+        <tr class="row" ng-repeat-start="note in main.notes">
+            <td class="cell">{{note.label}}</td>
+        </tr>
+        <tr class="row" ng-repeat-end>
+            <td class="cell">Done: {{note.done}}</td>
+        </tr>
+    </table>
+
+</div>
+
+<script src="../js/angular.1.3.0.js"></script>
+
+<script type="text/javascript">
+    angular.module('notesApp', [])
+        .controller('MainCtrl', [function() {
+                var self = this;
+                self.notes = [
+                    {id: 1, label: 'First Note', done: false},
+                    {id: 2, label: 'Second Note', done: false},
+                    {id: 3, label: 'Finished Third Note', done: true}
+                ];
+
+            }
+        ]
+    );
+
+
+</script>
+
+</body>
+</html>

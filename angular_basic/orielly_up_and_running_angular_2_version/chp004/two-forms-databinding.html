@@ -1,0 +1,47 @@
+<!-- File: chapter2/creating-controller.html -->
+<html>
+<head>
+    <title>Hello AngularJS</title>
+    <script src="../js/angular.1.3.0.js"></script>
+    <style>
+        label.input-label{
+            color:#cc0000;
+            font-weight:bold;
+        }
+    </style>
+</head>
+    <body ng-app="notesApp">
+        <div ng-controller="MainCtrl as main">
+            <form ng-submit="main.submit1()">
+                <input type="text" ng-model="main.username">
+                <input type="password" ng-model="main.password">
+                <input type="submit" value="Submit">
+            </form>
+            <form ng-submit="main.submit2()">
+                <input type="text" ng-model="main.user.username">
+                <input type="password" ng-model="main.user.password">
+                <input type="submit" value="Submit">
+            </form>
+
+
+    <script type="text/javascript">
+        angular.module('notesApp',[])
+                .controller('MainCtrl', [function() {
+                    var self = this;
+                    self.submit1 = function() {
+                        // Create user object to send to the server
+                        var user = {
+                            username: self.username,
+                            password: self.password
+                        };
+
+                        console.log('First form submit with ', user);
+                    };
+                    self.submit2 = function() {
+                        //the object will create automaticly.
+                        console.log('Second form submit with ', self.user);
+                    };
+                }]);
+    </script>
+    </body>
+</html>

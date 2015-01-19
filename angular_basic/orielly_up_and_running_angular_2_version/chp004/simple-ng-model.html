@@ -1,0 +1,24 @@
+<!-- File: chapter2/creating-controller.html -->
+<html >
+<head>
+    <title>Hello AngularJS</title>
+    <script src="../js/angular.1.3.0.js"></script>
+</head>
+    <body ng-app="notesApp">
+        <div ng-controller="MainCtrl as main">
+            <input type="text" ng-model="main.username"/>
+            <br/>
+
+            <span>You Type : </span>
+            <span ng-bind="main.username"></span>
+
+        </div>
+
+    <script type="text/javascript">
+        angular.module('notesApp', [])
+                .controller('MainCtrl', [function() {
+                    this.username = '';
+                }]);
+    </script>
+    </body>
+</html>

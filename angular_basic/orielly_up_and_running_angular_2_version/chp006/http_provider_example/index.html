@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+<head>
+    <title>Timestamp Marker Example</title>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0/angular.min.js"></script>
+</head>
+
+<body data-ng-app="timestamp-marker-example">
+<div data-ng-controller="ExampleController">
+    The request took <span data-ng-bind="requestTime"></span> seconds.
+</div>
+
+<script type="text/javascript">
+    var module = angular.module('timestamp-marker-example', []);
+
+    module
+        .factory('timestampMarker', [function() {
+        var timestampMarker = {
+            request: function(config) {
+                config.requestTimestamp = new Date().getTime();
+                return config;
+            },
+            response: function(response) {
+                response.config.responseTimestamp = new Date().getTime();
+                return response;
+            }
+        };
+
+            return timestampMarker;
+        }])
+
+    .config(['$httpProvider', function($httpProvider) {
+        $httpProvider.interceptors.push('timestampMarker');//insert the custom factory for http
+    }])
+
+    .controller('ExampleController', ['$http','$scope', function($http,$scope) {
+        $scope.requestTime = '[waiting]';//initial value
+
+        $http.get('https://api.github.com/users/naorye/repos').then(
+                function(response) {
+                    var time = response.config.responseTimestamp - response.config.requestTimestamp;//allow us to use the default methods
+                    $scope.requestTime = (time / 1000);//some math calculation
+        });
+
+
+
+    }]);
+</script>
+</body>
+</html>
