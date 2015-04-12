@@ -12,4 +12,5 @@
     <li><a href="parallex">parallex</a></li>
     <li><a href="natural_test">natural test</a></li>
     <li><a href="angular_basic">Angular Basic</a></li>
+    <li><a href="responsive_ajax_jquery">Responsive Ajax and jQuery</a></li>
 </ul>
